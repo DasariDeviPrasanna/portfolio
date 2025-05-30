@@ -10,7 +10,7 @@
     "routes": [
         {
             "src": "/assets/resume.pdf",
-            "dest": "/assets/$1"
+            "dest": "/assets/resume.pdf"
         },
         {
             "src": "/(.*)",
