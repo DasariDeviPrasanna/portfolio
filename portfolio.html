@@ -1287,6 +1287,32 @@
             max-width: 100%;
             height: auto;
         }
+        /* Add these to your CSS file */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Use media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust your container widths */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    /* Make images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
     </style>
 </head>
 <body>
