@@ -9,7 +9,7 @@
     ],
     "routes": [
         {
-            "src": "/assets/(resume.pdf)",
+            "src": "/assets/resume.pdf",
             "dest": "/assets/$1"
         },
         {
