@@ -1,19 +1,20 @@
 {
+    
     "version": 2,
     "builds": [
         {
-            "src": "*.html",
+            "src": "portfolio.html",
             "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/assets/(.*)",
+            "src": "/assets/(resume.pdf)",
             "dest": "/assets/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "/$1"
+            "dest": "/portfolio.html"
         }
     ]
 } 
