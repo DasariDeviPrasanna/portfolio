@@ -6,11 +6,19 @@
             "src": "portfolio.html",
             "use": "@vercel/static"
         }
+         {
+            "src": "resume.pdf",
+            "use": "@vercel/static"
+        }
     ],
     "routes": [
-        {
+      {
             "src": "/assets/resume.pdf",
-            "dest": "/assets/resume.pdf"
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/resume.pdf",
+            "dest": "/resume.pdf"
         },
         {
             "src": "/(.*)",
