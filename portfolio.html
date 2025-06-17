@@ -1313,6 +1313,99 @@ body {
         height: auto;
     }
 }
+
+        /* Internship Section Styles */
+        .internship-card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .internship-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--header-bg));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .internship-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .internship-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .internship-card:hover .internship-icon {
+            transform: rotateY(180deg);
+            background: var(--header-bg);
+        }
+
+        .internship-duration {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .internship-duration i {
+            color: var(--accent-color);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .text-primary {
+            color: var(--accent-color) !important;
+        }
+
+        .text-success {
+            color: #28a745 !important;
+        }
+
+        .internship-description ul li {
+            transition: transform 0.3s ease;
+        }
+
+        .internship-description ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .internship-description ul li i {
+            transition: transform 0.3s ease;
+        }
+
+        .internship-description ul li:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Achievement Badge Animation */
     </style>
 </head>
 <body>
@@ -1394,13 +1487,13 @@ body {
                             I am a highly driven and detail-oriented Computer Science undergraduate at Aditya College of Engineering and Technology with a strong foundation in programming, full-stack development, and data structures & algorithms. My academic excellence, with a CGPA of 8.75, is matched by my eagerness to explore emerging technologies, especially in the areas of Generative AI and space tech innovation.
                         </p>
                         <p class="about-text">
-                           Through hands-on projects like a user-friendly Smoothie Bowl app and a responsive coffee landing page, I’ve honed my skills in UI/UX design, front-end development, and problem-solving. I’ve further strengthened my technical toolkit with certifications in Python and Generative AI, and real-world experience through an internship with Agnirva Space, focusing on satellite systems and aerospace technology.
+                           Through hands-on projects like a user-friendly Smoothie Bowl app and a responsive coffee landing page, I've honed my skills in UI/UX design, front-end development, and problem-solving. I've further strengthened my technical toolkit with certifications in Python and Generative AI, and real-world experience through an internship with Agnirva Space, focusing on satellite systems and aerospace technology.
                         </p>
                         <p class="about-text">
                             I'm actively involved in coding platforms such as HackerRank, CodeChef, and GeeksforGeeks, continuously refining my skills through challenges and contests. Passionate about learning and building, I am seeking opportunities to contribute meaningfully to forward-thinking teams and impactful tech projects.
                         </p>
                         <div class="mt-4">
-                            <a href="assets/resume.pdf" download="prasanna_resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
+                            <a href="assets/prasanna_resume .pdf" download="prasanna_resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
                             <a href="#contact" class="btn btn-outline-primary" aria-label="Contact me">
@@ -1677,45 +1770,77 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
     </section>
 
     <!-- Internships Section -->
-    <section id="internships" class="py-5 animate-on-scroll" aria-label="Internships">
+    <section id="internships" class="py-5 animate-on-scroll" style="background-color: var(--section-bg);" aria-label="Internships">
         <div class="container">
             <h2 class="text-center mb-5">Internships</h2>
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
+                <!-- Agnirva Space Internship -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card internship-card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">THE AGNIRVA SPACE INTERNSHIP PROGRAM</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">ISRO</h6>
-                            <p class="card-text">Duration: october 2024 - December 2024</p>
-                            <ul class="list-unstyled">
-                                <li>• It is a 8 weeks internship program</li>
-                                <li>• A hands-on internship focused on space technology, satellite systems, and aerospace engineering</li>
-                                <li>• Providespractical experience in research, design, and innovation within the space industry.</li>
-                                <li>• Contributed to code reviews and documentation</li>
-                            </ul>
+                            <div class="internship-header d-flex align-items-center mb-3">
+                                <div class="internship-icon me-3">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1">Agnirva Space Internship Program</h5>
+                                    <h6 class="card-subtitle text-muted">ISRO</h6>
+                                </div>
+                            </div>
+                            <div class="internship-duration mb-3">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <span class="text-muted">October 2024 - December 2024</span>
+                                <span class="badge bg-primary ms-2">8 Weeks</span>
+                            </div>
+                            <div class="internship-description">
+                                <p class="card-text mb-3">A hands-on internship focused on space technology, satellite systems, and aerospace engineering, providing practical experience in research, design, and innovation within the space industry.</p>
+                                <h6 class="text-primary mb-2">Key Responsibilities:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Research and development in satellite systems</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Aerospace technology innovation</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Code reviews and documentation</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Collaborative project development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Techsonix Solutions Internship -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card internship-card h-100">
+                        <div class="card-body">
+                            <div class="internship-header d-flex align-items-center mb-3">
+                                <div class="internship-icon me-3">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1">Techsonix Solutions Web Development Internship</h5>
+                                    <h6 class="card-subtitle text-muted">Techsonix Solutions</h6>
+                                </div>
+                            </div>
+                            <div class="internship-duration mb-3">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <span class="text-muted">April 1, 2025 - April 30, 2025</span>
+                                <span class="badge bg-primary ms-2">4 Weeks</span>
+                            </div>
+                            <div class="internship-description">
+                                <p class="card-text mb-3">Focused on front-end web development using HTML, CSS, and JavaScript, gaining hands-on experience through real-world projects and industry-relevant training.</p>
+                                <h6 class="text-primary mb-2">Key Responsibilities:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Front-end web development</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>HTML, CSS, and JavaScript implementation</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Real-world project development</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Industry-relevant training and mentorship</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">TECHSONIX SOLUTIONS WEBDEVELOPMENT INTERNSHIP</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">TECHSONIX SOLUTIONS </h6>
-                            <p class="card-text">Duration: 1 April 2025 - 30 April 2025</p>
-                            <ul class="list-unstyled">
-                                <li>• It is a 4 weeks internship program</li>
-                                <li>• focused on front-end web development using HTML, CSS, and JavaScript.</li>
-                                <li>• Gained hands-on experience through real-world projects and industry-relevant training.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
     </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section animate-on-scroll" aria-label="Contact information">
         <div class="container">
@@ -1928,7 +2053,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         });
 
         // Update resume download links to open preview
-        document.querySelectorAll('a[href*="resume.pdf"]').forEach(link => {
+        document.querySelectorAll('a[href*="prasanna_resume .pdf"]').forEach(link => {
             if (!link.classList.contains('resume-btn')) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1939,7 +2064,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
 
         // Add error handling for PDF loading
         window.addEventListener('load', function() {
-            const pdfFrame = document.querySelector('iframe[src*="resume.pdf"]');
+            const pdfFrame = document.querySelector('iframe[src*="prasanna_resume .pdf"]');
             if (pdfFrame) {
                 pdfFrame.onerror = function() {
                     console.error('Error loading PDF');
@@ -1955,7 +2080,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         // PDF.js Functions
         async function loadPDF() {
             try {
-                const loadingTask = pdfjsLib.getDocument('assets/resume.pdf');
+                const loadingTask = pdfjsLib.getDocument('assets/prasanna_resume .pdf');
                 currentPdfDoc = await loadingTask.promise;
                 pageCount = currentPdfDoc.numPages;
                 updatePageInfo();
