@@ -8,12 +8,12 @@
     ],
     "routes": [
         {
-            "src": "/assets/prasanna_resume .pdf",
-            "dest": "/assets/prasanna_resume .pdf"
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
         },
         {
             "src": "/(.*)",
             "dest": "/portfolio.html"
         }
     ]
-}
+} 
