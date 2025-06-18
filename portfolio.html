@@ -1493,7 +1493,7 @@ body {
                             I'm actively involved in coding platforms such as HackerRank, CodeChef, and GeeksforGeeks, continuously refining my skills through challenges and contests. Passionate about learning and building, I am seeking opportunities to contribute meaningfully to forward-thinking teams and impactful tech projects.
                         </p>
                         <div class="mt-4">
-                            <a href="assets/prasanna_resume .pdf" download="prasanna_resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
+                            <a href="assets/prasanna_resume.pdf" download="prasanna_resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
                             <a href="#contact" class="btn btn-outline-primary" aria-label="Contact me">
@@ -2053,7 +2053,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         });
 
         // Update resume download links to open preview
-        document.querySelectorAll('a[href*="prasanna_resume .pdf"]').forEach(link => {
+        document.querySelectorAll('a[href*="prasanna_resume.pdf"]').forEach(link => {
             if (!link.classList.contains('resume-btn')) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -2064,7 +2064,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
 
         // Add error handling for PDF loading
         window.addEventListener('load', function() {
-            const pdfFrame = document.querySelector('iframe[src*="prasanna_resume .pdf"]');
+            const pdfFrame = document.querySelector('iframe[src*="prasanna_resume.pdf"]');
             if (pdfFrame) {
                 pdfFrame.onerror = function() {
                     console.error('Error loading PDF');
@@ -2080,7 +2080,7 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         // PDF.js Functions
         async function loadPDF() {
             try {
-                const loadingTask = pdfjsLib.getDocument('assets/prasanna_resume .pdf');
+                const loadingTask = pdfjsLib.getDocument('assets/prasanna_resume.pdf');
                 currentPdfDoc = await loadingTask.promise;
                 pageCount = currentPdfDoc.numPages;
                 updatePageInfo();
