@@ -8,6 +8,14 @@
     ],
     "routes": [
         {
+            "src": "/assets/prasanna_resume.pdf",
+            "dest": "/assets/prasanna_resume.pdf",
+            "headers": {
+                "Content-Type": "application/pdf",
+                "Content-Disposition": "attachment; filename=\"prasanna_resume.pdf\""
+            }
+        },
+        {
             "src": "/assets/(.*)",
             "dest": "/assets/$1"
         },
