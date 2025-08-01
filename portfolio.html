@@ -1406,7 +1406,7 @@ body {
         }
 
         /* Achievement Badge Animation */
-
+        
         /* Dark mode text and card overrides */
         [data-theme="dark"] body,
         [data-theme="dark"] h1,
@@ -1575,11 +1575,12 @@ body {
                 <div class="col-md-4 mb-4">
                     <div class="card project-card">
                         <div class="project-emoji-container">
-                            <span class="project-emoji">🌐</span>
+                            <span class="project-emoji">🍽️</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"> Coffee Landing Page</h5>
-                            <p class="card-text"> Developed a responsive and visually engaging landing page for a fictional coffee brand using HTML, CSS, and JavaScript. Focused on modern UI, smooth navigation, and mobile optimization.</p>
+                            <h5 class="card-title"> E-Commerce Website with User Authentication</h5>
+                            <p class="card-text">Developed a responsive e-commerce website with user authentication, product browsing, and cart features using HTML, CSS, JavaScript, PostgreSQL, and JSON. Ensured secure sessions, dynamic UI, and efficient data handling.
+                            </p>
 
                         </div>
                     </div>
@@ -1587,7 +1588,21 @@ body {
                 <div class="col-md-4 mb-4">
                     <div class="card project-card">
                         <div class="project-emoji-container">
-                            <span class="project-emoji">🌐</span>
+                            <span class="project-emoji">🧬🧫</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">HematoVision – Advanced Blood Cell Classification using Transfer Learning</h5>
+                            <p class="card-text">Developed a Flask-based web app for blood cell classification using MobileNetV2 and transfer learning. Integrated real-time image prediction with a user-friendly interface using HTML, CSS, and JavaScript. Achieved high accuracy using TensorFlow, Keras, Git, and Git LFS.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <div class="project-emoji-container">
+                            <span class="project-emoji">👨‍💻 </span>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Portfolio Website</h5>
@@ -1805,10 +1820,10 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">JAVA</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Hacker Rank</h6>
-                            <p class="card-text">certified by the HackerRank.</p>
-                            <p class="card-text"><small class="text-muted">Issued: october 2024</small></p>
+                            <h5 class="card-title">Foundations of Prompt Engineering – AWS Training & Certification (Aug 2025)</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AWS</h6>
+                            <p class="card-text">Learned core concepts of prompt engineering to effectively interact with AI models. Gained skills in crafting, refining, and optimizing prompts to improve the performance and reliability of large language models.</p>
+                            <p class="card-text"><small class="text-muted">Issued: august 2025</small></p>
 
                         </div>
                     </div>
@@ -1850,6 +1865,41 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
                                     <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Aerospace technology innovation</li>
                                     <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Code reviews and documentation</li>
                                     <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Collaborative project development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--smartinternz-->
+                <div class="col-lg-6 mb-4">
+                    <div class="card internship-card h-100">
+                        <div class="card-body">
+                            <div class="internship-header d-flex align-items-center mb-3">
+                                <div class="internship-icon me-3">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1">AI/ML Internship at SmartBridge</h5>
+                                    <h6 class="card-subtitle text-muted">SmartBridge</h6>
+                                </div>
+                            </div>
+                            <div class="internship-duration mb-3">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <span class="text-muted"> may 2025- june 2025</span>
+                                <span class="badge bg-primary ms-2">8 weeks</span>
+                            </div>
+                            <div class="internship-description">
+                                <p class="card-text mb-3">Worked on real-world projects using Python, TensorFlow, and Keras.
+                                    Built HematoVision, a deep learning app for blood cell classification.
+                                    Gained skills in model training, transfer learning, and deployment with Flask.
+                                </p>
+                                <h6 class="text-primary mb-2">Key Responsibilities:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Preprocessed image data for training</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Built a user-friendly web interface for blood cell classification using HTML, CSS, and JavaScript.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Integrated real-time image prediction with the trained model.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Ensured secure user authentication and data handling.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Optimized the application for mobile devices.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1960,75 +2010,75 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
-            // Scroll Animation
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.animate-on-scroll');
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
+        // Scroll Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
 
-            // Back to Top Button
-            const backToTop = document.querySelector('.back-to-top');
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
             if (backToTop) {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 100) {
-                        backToTop.classList.add('show');
-                    } else {
-                        backToTop.classList.remove('show');
-                    }
-                });
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
             }
 
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
             if (mobileMenuBtn && navMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                    const icon = mobileMenuBtn.querySelector('i');
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
                     if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
                     }
-                });
+        });
             }
-            // Close mobile menu when clicking a link
+        // Close mobile menu when clicking a link
             if (navMenu && mobileMenuBtn) {
-                document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navMenu.classList.remove('active');
-                        const icon = mobileMenuBtn.querySelector('i');
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
                         if (icon) {
-                            icon.classList.add('fa-bars');
-                            icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
                         }
-                    });
-                });
+            });
+        });
             }
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                     const href = this.getAttribute('href');
                     if (href === "#") {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
                         const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
                     }
                 });
             });
