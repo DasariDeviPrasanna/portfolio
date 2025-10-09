@@ -97,8 +97,24 @@
             font-weight: 500;
             position: relative;
             padding: 0.5rem 0;
-            transition: color 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
+        
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+        
         .nav-menu a::after {
             content: '';
             position: absolute;
@@ -107,11 +123,19 @@
             width: 0;
             height: 2px;
             background-color: #ffffff;
-            transition: width 0.3s ease;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .nav-menu a:hover {
             color: #ffffff;
+            transform: translateY(-2px);
         }
+        
+        .nav-menu a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
         .nav-menu a:hover::after {
             width: 100%;
         }
@@ -240,16 +264,69 @@
             border-right: 2px solid var(--accent-color);
             white-space: nowrap;
             overflow: hidden;
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+        
+        .hero-title {
+            opacity: 0;
+            animation: slideInFromTop 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0.3s;
+        }
+        
+        .hero-subtitle {
+            opacity: 0;
+            animation: slideInFromBottom 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0.6s;
+        }
+        
+        .hero-nav {
+            opacity: 0;
+            animation: fadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0.9s;
+        }
+        
+        .hero-contact {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 1.2s;
         }
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
         .project-card:hover {
-            transform: rotateY(5deg) rotateX(5deg);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: translateY(-10px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .project-card .card-body {
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .card-body {
+            transform: translateZ(20px);
         }
         .project-card .card-body {
             padding: 20px;
@@ -263,11 +340,46 @@
             margin-bottom: 20px;
             background-color: #e0e0e0;
             border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
+        
         .progress-bar {
-            background-color: var(--accent-color);
-            transition: width 1s ease-in-out;
+            background: linear-gradient(90deg, var(--accent-color), #e6b800);
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .skill-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .skill-item:nth-child(1) { animation-delay: 0.1s; }
+        .skill-item:nth-child(2) { animation-delay: 0.2s; }
+        .skill-item:nth-child(3) { animation-delay: 0.3s; }
+        .skill-item:nth-child(4) { animation-delay: 0.4s; }
+        .skill-item:nth-child(5) { animation-delay: 0.5s; }
+        .skill-item:nth-child(6) { animation-delay: 0.6s; }
         .education-section {
             background-color: var(--section-bg);
             padding: 60px 0;
@@ -293,8 +405,20 @@
             width: 45%;
             padding: 10px 30px;
             opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
-            animation-delay: calc(0.2s * var(--i));
+            transform: translateY(30px);
+            animation: timelineSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: calc(0.3s * var(--i));
+        }
+        
+        @keyframes timelineSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         .timeline-item:nth-child(odd) {
             left: 0;
@@ -345,13 +469,46 @@
         }
         #contact-form {
             opacity: 0;
-            transform: translateY(20px);
-            animation: formFadeIn 0.6s ease forwards;
+            transform: translateY(30px) scale(0.95);
+            animation: formFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
+        
+        .form-control {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        
         .form-control:focus {
-            transform: scale(1.02);
-            box-shadow: 0 0 8px rgba(0, 48, 135, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 48, 135, 0.15);
+            border-color: var(--accent-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .form-control:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            opacity: 0;
+            animation: formGroupSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes formGroupSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         #form-response {
             transform: scale(0.8);
@@ -363,12 +520,73 @@
             border-color: var(--header-bg);
             font-weight: 500;
             padding: 10px 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
         }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
         .btn-primary:hover {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* Download button states */
+        .btn-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-primary:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Success message animation */
+        .alert-success {
+            animation: slideInFromTop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Error message animation */
+        .alert-danger {
+            animation: slideInFromTop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Spinner animation for download button */
+        .fa-spinner {
+            animation: spin 1s linear infinite;
         }
         footer {
             background-color: var(--footer-bg);
@@ -380,12 +598,39 @@
             color: var(--accent-color);
             font-size: 1.5rem;
             margin: 0 12px;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
         }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .social-links a:hover::before {
+            width: 40px;
+            height: 40px;
+        }
+        
         .social-links a:hover {
             color: #ffffff;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.2);
         }
+        
+        .social-links a:nth-child(1):hover { animation: bounce 0.6s ease; }
+        .social-links a:nth-child(2):hover { animation: pulse 0.6s ease; }
+        .social-links a:nth-child(3):hover { animation: shake 0.6s ease; }
+        .social-links a:nth-child(4):hover { animation: bounce 0.6s ease; }
         .contact-email {
             font-size: 0.9rem;
             margin-top: 10px;
@@ -403,8 +648,8 @@
             right: 20px;
             background-color: var(--header-bg);
             color: #ffffff;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -412,50 +657,322 @@
             font-size: 1.2rem;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: scale(0.8) rotate(180deg);
         }
+        
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
+            transform: scale(1) rotate(0deg);
         }
+        
         .back-to-top:hover {
             background-color: var(--accent-color);
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-        /* Animations */
+        
+        .back-to-top:active {
+            transform: scale(0.95);
+        }
+        /* Enhanced Animations */
         @keyframes pageLoad {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { 
+                opacity: 0; 
+                transform: scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
         }
+        
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
+        
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+        
+        @keyframes slideInFromTop {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        @keyframes slideInFromBottom {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
         @keyframes formFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
         }
+        
         @keyframes responsePop {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { 
+                opacity: 0; 
+                transform: scale(0.8) rotate(-5deg); 
+            }
+            50% { 
+                transform: scale(1.05) rotate(2deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg); 
+            }
         }
+        
         @keyframes typing {
             from { width: 0; }
             to { width: 100%; }
         }
+        
         @keyframes blink {
             50% { border-color: transparent; }
         }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.05); 
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40%, 43% {
+                transform: translateY(-20px);
+            }
+            70% {
+                transform: translateY(-10px);
+            }
+            90% {
+                transform: translateY(-4px);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 0 5px var(--accent-color); 
+            }
+            50% { 
+                box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color); 
+            }
+        }
+        
+        @keyframes slideInStagger {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Animation Classes */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        
+        .animate-fade-in-left {
+            animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-fade-in-scale {
+            animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-slide-in-top {
+            animation: slideInFromTop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-slide-in-bottom {
+            animation: slideInFromBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        /* Staggered animations for lists */
+        .stagger-animation > * {
+            opacity: 0;
+            animation: slideInStagger 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hover-scale {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .hover-rotate {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-rotate:hover {
+            transform: rotate(5deg);
+        }
+        
+        /* Text animations */
+        .text-reveal {
+            overflow: hidden;
+        }
+        
+        .text-reveal span {
+            display: inline-block;
+            animation: slideInFromBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        
+        .text-reveal span:nth-child(1) { animation-delay: 0.1s; }
+        .text-reveal span:nth-child(2) { animation-delay: 0.2s; }
+        .text-reveal span:nth-child(3) { animation-delay: 0.3s; }
+        .text-reveal span:nth-child(4) { animation-delay: 0.4s; }
+        .text-reveal span:nth-child(5) { animation-delay: 0.5s; }
+        
+        /* Loading animations */
+        .loading-dots {
+            display: inline-block;
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: loadingDots 1.5s infinite;
+        }
+        
+        @keyframes loadingDots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+        /* Section reveal animations */
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        section.section-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced mobile responsiveness */
         @media (max-width: 768px) {
             .hero-nav {
                 gap: 15px;
@@ -463,6 +980,27 @@
             }
             .hero-section {
                 padding: 80px 0 60px;
+            }
+            
+            .project-card:hover {
+                transform: translateY(-5px) scale(1.02);
+            }
+            
+            .social-links a:hover {
+                transform: translateY(-3px) scale(1.1);
+            }
+            
+            .btn-primary:hover {
+                transform: translateY(-2px) scale(1.03);
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
         .about-section {
@@ -504,12 +1042,28 @@
         .profile-image-container:hover .profile-emoji {
             animation: wave 1s ease-in-out;
         }
+        
+        .profile-image-container:hover .profile-image-border {
+            animation: rotate 5s linear infinite;
+            box-shadow: 0 0 30px var(--accent-color);
+        }
+        
         @keyframes wave {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(-20deg); }
             50% { transform: rotate(10deg); }
             75% { transform: rotate(-10deg); }
             100% { transform: rotate(0deg); }
+        }
+        
+        /* Enhanced floating animation */
+        .profile-emoji {
+            animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+        }
+        
+        .profile-image-container:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         .profile-image-border {
             position: absolute;
@@ -1543,7 +2097,7 @@ body {
                             I'm actively involved in coding platforms such as HackerRank, CodeChef, and GeeksforGeeks, continuously refining my skills through challenges and contests. Passionate about learning and building, I am seeking opportunities to contribute meaningfully to forward-thinking teams and impactful tech projects.
                         </p>
                         <div class="mt-4">
-                            <a href="assets/prasanna_resume.pdf" download="prasanna_resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
+                            <a href="assets/Devi_prasanna_resume%20.pdf" download="Devi_Prasanna_Resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
                             <a href="#contact" class="btn btn-outline-primary" aria-label="Contact me">
@@ -2014,15 +2568,63 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
 
-        // Scroll Animation
+        // Enhanced Scroll Animation with Intersection Observer
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Add staggered animations for child elements
+                        const staggerChildren = entry.target.querySelectorAll('.stagger-animation > *');
+                        if (staggerChildren.length > 0) {
+                            staggerChildren.forEach((child, index) => {
+                                setTimeout(() => {
+                                    child.style.opacity = '1';
+                                    child.style.transform = 'translateX(0)';
+                                }, index * 100);
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            elements.forEach(element => observer.observe(element));
+        };
+        
+        // Parallax effect for hero section
+        const parallaxEffect = () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-section');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        };
+        
+        // Smooth reveal for sections
+        const revealSections = () => {
+            const sections = document.querySelectorAll('section');
+            const revealSection = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-revealed');
+                    }
+                });
+            };
+            
+            const sectionObserver = new IntersectionObserver(revealSection, {
+                threshold: 0.15
+            });
+            
+            sections.forEach(section => {
+                section.classList.add('animate-on-scroll');
+                sectionObserver.observe(section);
             });
         };
 
@@ -2037,6 +2639,117 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
             }
         });
             }
+        
+        // Initialize animations
+        animateOnScroll();
+        revealSections();
+        
+        // Add scroll event for parallax
+        window.addEventListener('scroll', () => {
+            parallaxEffect();
+        });
+        
+        // Enhanced Resume Download Functionality
+        const downloadResume = document.getElementById('download-resume');
+        if (downloadResume) {
+            downloadResume.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Downloading...';
+                this.disabled = true;
+                
+                try {
+                    // Try multiple file paths to handle different naming conventions
+                    const possiblePaths = [
+                        'assets/Devi_prasanna_resume%20.pdf', // URL encoded space (primary)
+                        'assets/Devi_prasanna_resume .pdf',
+                        'assets/Devi_prasanna_resume.pdf',
+                        'assets/prasanna_resume.pdf'
+                    ];
+                    
+                    let downloadSuccessful = false;
+                    
+                    // Try each path until one works
+                    const tryDownload = (index) => {
+                        if (index >= possiblePaths.length) {
+                            throw new Error('File not found');
+                        }
+                        
+                        const filePath = possiblePaths[index];
+                        const link = document.createElement('a');
+                        link.href = filePath;
+                        link.download = 'Devi_Prasanna_Resume.pdf';
+                        link.style.display = 'none';
+                        
+                        // Test if file exists by trying to fetch it
+                        fetch(filePath, { method: 'HEAD' })
+                            .then(response => {
+                                if (response.ok) {
+                                    // File exists, trigger download
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                    downloadSuccessful = true;
+                                    
+                                    // Reset button and show success
+                                    setTimeout(() => {
+                                        this.innerHTML = originalText;
+                                        this.disabled = false;
+                                        
+                                        const successMsg = document.createElement('div');
+                                        successMsg.className = 'alert alert-success mt-2';
+                                        successMsg.innerHTML = '<i class="fas fa-check-circle me-2"></i>Resume downloaded successfully!';
+                                        this.parentNode.appendChild(successMsg);
+                                        
+                                        setTimeout(() => {
+                                            successMsg.remove();
+                                        }, 3000);
+                                    }, 1000);
+                                } else {
+                                    // Try next path
+                                    tryDownload(index + 1);
+                                }
+                            })
+                            .catch(() => {
+                                // Try next path
+                                tryDownload(index + 1);
+                            });
+                    };
+                    
+                    tryDownload(0);
+                    
+                } catch (error) {
+                    // Reset button and show error message
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                        
+                        const errorMsg = document.createElement('div');
+                        errorMsg.className = 'alert alert-danger mt-2';
+                        errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Resume file not found. Please contact me directly.';
+                        this.parentNode.appendChild(errorMsg);
+                        
+                        setTimeout(() => {
+                            errorMsg.remove();
+                        }, 5000);
+                    }, 1000);
+                }
+            });
+        }
+        
+        // Add smooth reveal for page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            
+            // Trigger entrance animations
+            setTimeout(() => {
+                document.querySelectorAll('.hero-title, .hero-subtitle, .hero-nav, .hero-contact').forEach(el => {
+                    if (el) el.style.opacity = '1';
+                });
+            }, 100);
+        });
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
