@@ -8,16 +8,8 @@
     ],
     "routes": [
         {
-            "src": "/assets/Devi_prasanna_resume .pdf",
-            "dest": "/assets/Devi_prasanna_resume .pdf",
-            "headers": {
-                "Content-Type": "application/pdf",
-                "Content-Disposition": "attachment; filename=\"Devi_Prasanna_Resume.pdf\""
-            }
-        },
-        {
-            "src": "/assets/Devi_prasanna_resume.pdf",
-            "dest": "/assets/Devi_prasanna_resume .pdf",
+            "src": "/assets/Devi_Prasanna_Resume.pdf",
+            "dest": "/assets/Devi_Prasanna_Resume.pdf",
             "headers": {
                 "Content-Type": "application/pdf",
                 "Content-Disposition": "attachment; filename=\"Devi_Prasanna_Resume.pdf\""

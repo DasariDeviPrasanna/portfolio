@@ -2097,7 +2097,7 @@ body {
                             I'm actively involved in coding platforms such as HackerRank, CodeChef, and GeeksforGeeks, continuously refining my skills through challenges and contests. Passionate about learning and building, I am seeking opportunities to contribute meaningfully to forward-thinking teams and impactful tech projects.
                         </p>
                         <div class="mt-4">
-                            <a href="assets/Devi_prasanna_resume%20.pdf" download="Devi_Prasanna_Resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
+                            <a href="assets/Devi_Prasanna_Resume.pdf" download="Devi_Prasanna_Resume.pdf" class="btn btn-primary me-3" id="download-resume" aria-label="Download resume">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
                             <a href="#contact" class="btn btn-outline-primary" aria-label="Contact me">
@@ -2653,89 +2653,36 @@ explaining AI and ML fundamentals including AI basics, neural networks.</p>
         const downloadResume = document.getElementById('download-resume');
         if (downloadResume) {
             downloadResume.addEventListener('click', function(e) {
-                e.preventDefault();
-                
                 // Show loading state
                 const originalText = this.innerHTML;
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Downloading...';
                 this.disabled = true;
                 
-                try {
-                    // Try multiple file paths to handle different naming conventions
-                    const possiblePaths = [
-                        'assets/Devi_prasanna_resume%20.pdf', // URL encoded space (primary)
-                        'assets/Devi_prasanna_resume .pdf',
-                        'assets/Devi_prasanna_resume.pdf',
-                        'assets/prasanna_resume.pdf'
-                    ];
+                // Simple direct download approach for Vercel
+                const link = document.createElement('a');
+                link.href = 'assets/Devi_Prasanna_Resume.pdf';
+                link.download = 'Devi_Prasanna_Resume.pdf';
+                link.style.display = 'none';
+                
+                // Add to DOM and trigger download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Reset button and show success
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
                     
-                    let downloadSuccessful = false;
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'alert alert-success mt-2';
+                    successMsg.innerHTML = '<i class="fas fa-check-circle me-2"></i>Resume downloaded successfully!';
+                    this.parentNode.appendChild(successMsg);
                     
-                    // Try each path until one works
-                    const tryDownload = (index) => {
-                        if (index >= possiblePaths.length) {
-                            throw new Error('File not found');
-                        }
-                        
-                        const filePath = possiblePaths[index];
-                        const link = document.createElement('a');
-                        link.href = filePath;
-                        link.download = 'Devi_Prasanna_Resume.pdf';
-                        link.style.display = 'none';
-                        
-                        // Test if file exists by trying to fetch it
-                        fetch(filePath, { method: 'HEAD' })
-                            .then(response => {
-                                if (response.ok) {
-                                    // File exists, trigger download
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-                                    downloadSuccessful = true;
-                                    
-                                    // Reset button and show success
-                                    setTimeout(() => {
-                                        this.innerHTML = originalText;
-                                        this.disabled = false;
-                                        
-                                        const successMsg = document.createElement('div');
-                                        successMsg.className = 'alert alert-success mt-2';
-                                        successMsg.innerHTML = '<i class="fas fa-check-circle me-2"></i>Resume downloaded successfully!';
-                                        this.parentNode.appendChild(successMsg);
-                                        
-                                        setTimeout(() => {
-                                            successMsg.remove();
-                                        }, 3000);
-                                    }, 1000);
-                                } else {
-                                    // Try next path
-                                    tryDownload(index + 1);
-                                }
-                            })
-                            .catch(() => {
-                                // Try next path
-                                tryDownload(index + 1);
-                            });
-                    };
-                    
-                    tryDownload(0);
-                    
-                } catch (error) {
-                    // Reset button and show error message
                     setTimeout(() => {
-                        this.innerHTML = originalText;
-                        this.disabled = false;
-                        
-                        const errorMsg = document.createElement('div');
-                        errorMsg.className = 'alert alert-danger mt-2';
-                        errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Resume file not found. Please contact me directly.';
-                        this.parentNode.appendChild(errorMsg);
-                        
-                        setTimeout(() => {
-                            errorMsg.remove();
-                        }, 5000);
-                    }, 1000);
-                }
+                        successMsg.remove();
+                    }, 3000);
+                }, 1500);
             });
         }
         
