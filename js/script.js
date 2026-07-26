@@ -203,6 +203,11 @@ form.addEventListener("submit", async (e) => {
 
     const formData = new FormData(form);
 
+fetch(scriptURL, {
+  method: "POST",
+  body: formData
+});
+
     try {
 
         const response = await fetch(scriptURL, {
