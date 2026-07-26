@@ -1,0 +1,263 @@
+/*====================================
+    LARGE DEVICES (1200px)
+=====================================*/
+
+@media (max-width:1200px){
+
+.container{
+    width:92%;
+}
+
+.hero-content{
+    gap:50px;
+}
+
+.profile-card{
+    width:320px;
+    height:320px;
+}
+
+}
+
+/*====================================
+    TABLETS (992px)
+=====================================*/
+
+@media (max-width:992px){
+
+.hero-content,
+.about-content,
+.contact-wrapper{
+
+    grid-template-columns:1fr;
+    text-align:center;
+
+}
+
+.hero-image{
+    order:-1;
+    margin-bottom:40px;
+}
+
+.about-image{
+    margin:auto;
+}
+
+.about-info{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.timeline::before{
+    left:20px;
+}
+
+.timeline-item{
+
+    width:calc(100% - 60px);
+    margin-left:60px !important;
+
+}
+
+.timeline-item::before{
+    left:-48px !important;
+}
+
+}
+
+/*====================================
+    MOBILE (768px)
+=====================================*/
+
+@media (max-width:768px){
+
+section{
+    padding:70px 0;
+}
+
+h1{
+    font-size:2.7rem;
+}
+
+h2{
+    font-size:2rem;
+}
+
+.hero-text p{
+    font-size:1rem;
+}
+
+.profile-card{
+    width:260px;
+    height:260px;
+}
+
+.nav-links{
+
+    position:fixed;
+    top:80px;
+    right:-100%;
+    width:260px;
+    height:100vh;
+    background:#0f172a;
+    flex-direction:column;
+    padding:40px;
+    transition:.4s;
+    gap:25px;
+
+}
+
+.nav-links.active{
+    right:0;
+}
+
+.menu-toggle{
+    display:block;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.about-info{
+    grid-template-columns:1fr;
+}
+
+.skills-grid,
+.project-grid,
+.certificate-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+.social-icons{
+
+    justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+.contact-box{
+
+    justify-content:center;
+    text-align:left;
+
+}
+
+}
+
+/*====================================
+    SMALL MOBILE (576px)
+=====================================*/
+
+@media (max-width:576px){
+
+.container{
+    width:94%;
+}
+
+.hero{
+    min-height:auto;
+    padding:120px 0 80px;
+}
+
+h1{
+    font-size:2.2rem;
+}
+
+h2{
+    font-size:1.7rem;
+}
+
+.hero-buttons .btn{
+    width:100%;
+}
+
+.btn{
+    padding:14px 25px;
+}
+
+.profile-card{
+    width:220px;
+    height:220px;
+}
+
+.stat-card h2{
+    font-size:2rem;
+}
+
+.timeline-item{
+    padding:20px;
+}
+
+.contact-form{
+    padding:25px;
+}
+
+.footer-logo{
+    font-size:1.6rem;
+}
+
+.back-top{
+
+    width:45px;
+    height:45px;
+    font-size:18px;
+    right:15px;
+    bottom:15px;
+
+}
+
+}
+
+/*====================================
+    EXTRA SMALL (400px)
+=====================================*/
+
+@media (max-width:400px){
+
+h1{
+    font-size:1.9rem;
+}
+
+.hero-text p{
+    font-size:.95rem;
+}
+
+.profile-card{
+    width:180px;
+    height:180px;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.hero-buttons{
+    gap:15px;
+}
+
+.social-icons a{
+
+    width:42px;
+    height:42px;
+    font-size:16px;
+
+}
+
+}

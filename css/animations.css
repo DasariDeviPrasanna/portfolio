@@ -1,0 +1,361 @@
+/*=============================
+    FADE ANIMATIONS
+==============================*/
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.fade-up{
+    animation:fadeUp .8s ease forwards;
+}
+
+/*=============================
+    SLIDE LEFT
+==============================*/
+
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.slide-left{
+    animation:slideLeft .8s ease forwards;
+}
+
+/*=============================
+    SLIDE RIGHT
+==============================*/
+
+@keyframes slideRight{
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.slide-right{
+    animation:slideRight .8s ease forwards;
+}
+
+/*=============================
+    SCALE
+==============================*/
+
+@keyframes scaleUp{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.scale-up{
+    animation:scaleUp .7s ease forwards;
+}
+
+/*=============================
+    FLOATING IMAGE
+==============================*/
+
+@keyframes floating{
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.profile-card{
+    animation:floating 4s ease-in-out infinite;
+}
+
+/*=============================
+    GLOWING BORDER
+==============================*/
+
+@keyframes glow{
+
+0%{
+box-shadow:0 0 10px rgba(124,58,237,.3);
+}
+
+50%{
+box-shadow:0 0 35px rgba(6,182,212,.6);
+}
+
+100%{
+box-shadow:0 0 10px rgba(124,58,237,.3);
+}
+
+}
+
+.profile-card{
+
+animation:
+floating 4s ease-in-out infinite,
+glow 3s linear infinite;
+
+}
+
+/*=============================
+BUTTON HOVER
+==============================*/
+
+.btn{
+
+transition:.35s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+/*=============================
+CARD HOVER
+==============================*/
+
+.project-card,
+.skill-card,
+.info-card,
+.stat-card,
+.certificate-card{
+
+transition:.4s;
+
+}
+
+.project-card:hover,
+.skill-card:hover,
+.info-card:hover,
+.stat-card:hover,
+.certificate-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+/*=============================
+IMAGE ZOOM
+==============================*/
+
+.project-image{
+
+overflow:hidden;
+
+}
+
+.project-image img{
+
+transition:.6s;
+
+}
+
+.project-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/*=============================
+ROTATE ICON
+==============================*/
+
+.social-icons a i{
+
+transition:.35s;
+
+}
+
+.social-icons a:hover i{
+
+transform:rotate(360deg);
+
+}
+
+/*=============================
+SCROLL REVEAL
+==============================*/
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:all .8s ease;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/*=============================
+BACK TO TOP
+==============================*/
+
+.back-top{
+
+transition:.4s;
+
+}
+
+.back-top:hover{
+
+transform:translateY(-8px);
+
+}
+
+/*=============================
+LOADING
+==============================*/
+
+@keyframes pulse{
+
+0%{
+opacity:.4;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.4;
+}
+
+}
+
+.loading{
+
+animation:pulse 1.5s infinite;
+
+}
+
+/*=============================
+TEXT GRADIENT
+==============================*/
+
+.gradient-text{
+
+background:linear-gradient(
+90deg,
+#7C3AED,
+#06B6D4);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+/*=============================
+AURORA BACKGROUND
+==============================*/
+
+@keyframes aurora{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.hero{
+
+background-size:300% 300%;
+
+animation:aurora 12s ease infinite;
+
+}
+/*==============================
+PARTICLES
+==============================*/
+
+.particle{
+
+position:absolute;
+
+bottom:-20px;
+
+background:rgba(255,255,255,.25);
+
+border-radius:50%;
+
+animation:floatParticle linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes floatParticle{
+
+0%{
+
+transform:
+translateY(0)
+scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-110vh)
+scale(1.2);
+
+opacity:0;
+
+}
+
+}
