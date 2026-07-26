@@ -1527,3 +1527,13 @@ ACHIEVEMENTS
     line-height:1.7;
 
 }
+.project-badge{
+    display:inline-block;
+    background:linear-gradient(135deg,#7C3AED,#06B6D4);
+    color:#fff;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:0.8rem;
+    font-weight:600;
+    margin-bottom:15px;
+}

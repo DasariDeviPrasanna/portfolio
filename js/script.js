@@ -193,21 +193,36 @@ if(typing){
 // CONTACT FORM
 // ===============================
 
+const scriptURL = "https://script.google.com/macros/s/AKfycbwdX8jF7IKlCN4cAB_fVEOtuj9YycUUwNRvmN0NLVYFg7jJyYDWN0Y7S-JhViE6mlrv/exec";
+
 const form = document.querySelector(".contact-form");
 
-if(form){
+form.addEventListener("submit", async (e) => {
 
-form.addEventListener("submit",function(e){
+    e.preventDefault();
 
-e.preventDefault();
+    const formData = new FormData(form);
 
-alert("Thank you! Your message has been sent.");
+    try {
 
-form.reset();
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+            alert("Message sent successfully!");
+            form.reset();
+        } else {
+            alert("Something went wrong.");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Error sending message.");
+    }
 
 });
-
-}
 
 // ===============================
 // CURRENT YEAR
