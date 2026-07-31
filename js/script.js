@@ -193,7 +193,7 @@ if(typing){
 // CONTACT FORM
 // ===============================
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbwdX8jF7IKlCN4cAB_fVEOtuj9YycUUwNRvmN0NLVYFg7jJyYDWN0Y7S-JhViE6mlrv/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzoMJ1TfaHK7tQCU59KvBQPZfPXb99b6v75e7ch7JFtbstYoHbaePpKC0b9lw6TBfA/exec";
 
 const form = document.querySelector(".contact-form");
 
